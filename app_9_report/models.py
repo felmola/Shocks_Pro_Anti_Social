@@ -91,13 +91,14 @@ class Player(BasePlayer):
     report_pay_sender_belief_if1 = models.IntegerField()
     report_pay_sender_belief_if2 = models.IntegerField()
     report_pay_sender_belief_shock = models.IntegerField()
+    report_r1_b_temp_payoff = models.IntegerField()
     
     # beliefs receiver
     report_receiver_belief = models.IntegerField()
     report_receiver_belief_shock = models.IntegerField()
     report_pay_receiver_belief = models.IntegerField()
     report_pay_receiver_belief_shock = models.IntegerField()
-    report_b_temp_payoff = models.IntegerField()
+    report_r2_b_temp_payoff = models.IntegerField()
     report_b_final_payoff = models.IntegerField()
 
     def report_vars_for_database(self): #this code sends the info from participant.vars up to the variables defined in player class for database
@@ -138,13 +139,14 @@ class Player(BasePlayer):
         'pay_sender_belief_if1',
         'pay_sender_belief_if2',
         'pay_sender_belief_shock',
+        'r1_b_temp_payoff',
 
         # beliefs receiver
         'receiver_belief',
         'receiver_belief_shock',
         'pay_receiver_belief',
         'pay_receiver_belief_shock',
-        'b_temp_payoff',
+        'r2_b_temp_payoff',
         'b_final_payoff',
         ]
 

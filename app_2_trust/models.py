@@ -166,7 +166,7 @@ class Group(BaseGroup):
             p.participant.vars['r2_sent_back_amount_if1'] = p.in_round(2).sent_back_amount_if1
             p.participant.vars['r2_sent_back_amount_if2'] = p.in_round(2).sent_back_amount_if2
             p.participant.vars['r2_t_payoff'] = p.in_round(2).t_temp_payoff
-            p.participant.vars['t_final_payoff'] = p.t_final_payoff
+#            p.participant.vars['t_final_payoff'] = p.t_final_payoff # defined in player class tr_final_payoff
             #beliefs sender
             p.participant.vars['sender_belief_if1'] = p.sender_belief_if1
             p.participant.vars['sender_belief_if2'] = p.sender_belief_if2
@@ -174,12 +174,14 @@ class Group(BaseGroup):
             p.participant.vars['pay_sender_belief_if1'] = p.pay_sender_belief_if1
             p.participant.vars['pay_sender_belief_if2'] = p.pay_sender_belief_if2
             p.participant.vars['pay_sender_belief_shock'] = p.pay_sender_belief_shock
+            p.participant.vars['r1_b_temp_payoff'] = p.in_round(1).b_temp_payoff
+
             #beliefs receiver
             p.participant.vars['receiver_belief'] = p.receiver_belief
             p.participant.vars['receiver_belief_shock'] = p.receiver_belief_shock
             p.participant.vars['pay_receiver_belief'] = p.pay_receiver_belief
             p.participant.vars['pay_receiver_belief_shock'] = p.pay_receiver_belief_shock
-#            p.participant.vars['b_temp_payoff'] = p.b_temp_payoff # defined in player class tr_final_payoff
+            p.participant.vars['r2_b_temp_payoff'] = p.in_round(2).b_temp_payoff
 #            p.participant.vars['b_final_payoff'] = p.b_final_payoff # defined in player class tr_final_payoff
 
 
@@ -269,6 +271,7 @@ class Player(BasePlayer):
         self.b_final_payoff = sum(filter(None, [self.in_round(1).b_temp_payoff, self.in_round(Constants.num_rounds).b_temp_payoff]))
         self.participant.vars['b_temp_payoff'] = self.b_temp_payoff # defined in player class tr_final_payoff
         self.participant.vars['b_final_payoff'] = self.b_final_payoff # defined in player class tr_final_payoff
+        self.participant.vars['t_final_payoff'] = self.t_final_payoff # defined in player class tr_final_payoff
         print("[[ APP_2_TRUST ]] - PLAYER/FINAL_PAYOFFS - PLAYER_ID_INSUBSESSION ==> ", self.id_in_subsession, " <== ]]")
         print("[[ APP_2_TRUST ]] - PLAYER/FINAL_PAYOFFS - P.T_FINAL_PAYOFF ==> ", self.t_final_payoff, " <== ]]")
         print("[[ APP_2_TRUST ]] - PLAYER/T_FINAL_PAYOFF  - P.B_FINAL_PAYOFF ==> ", self.b_final_payoff, " <== ]]")

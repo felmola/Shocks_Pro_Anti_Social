@@ -58,3 +58,5 @@ git commit -m "Fixed treatment inconsistencies in trust app. TODO: Timer in addi
 git commit -m "Created p.participant.vars in trust app to be passed onto admin report player variables. i e. have them in database for easy comparison. Fist try. TODO: Timer in additions"
 
 git commit -m "fixed some p.participant missing data on database. TODO: Timer in additions"
+
+git commit -m "found an error in the belief payoff function. It is adding incorrectly"
