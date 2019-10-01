@@ -54,3 +54,5 @@ git commit -m "wrote iterated names and ids on consent TODO: Timer in additions,
 git commit -m "wrote the code in report to show variables at the end of database. TODO: Same as before. Detected an error in treatments"
 
 git commit -m "Fixed treatment inconsistencies in trust app. TODO: Timer in additions, test bots"
+
+git commit -m "Created p.participant.vars in trust app to be passed onto admin report player variables. i e. have them in database for easy comparison. Fist try. TODO: Timer in additions"

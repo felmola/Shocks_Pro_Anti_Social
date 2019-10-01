@@ -116,8 +116,8 @@ class app_2_trust_main_results(Page):
     def vars_for_template(self):
         self.player.tr_final_payoff()
 
-    def before_next_page(self):
-        self.player.report_trust()
+#    def before_next_page(self):
+#        self.player.report_trust()
 
 
 page_sequence = [

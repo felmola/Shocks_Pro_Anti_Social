@@ -56,56 +56,94 @@ class Player(BasePlayer):
 
     e_mail = djmodels.EmailField(verbose_name='Correo Electrónico', validators=[UnalEmailValidator()])
 
+    #basic info
     report_participant_code = models.LongStringField()
     report_consent_name = models.LongStringField()
     report_consent_id_number = models.IntegerField()
     report_treatment = models.IntegerField()
+
+    #additions
     report_addition_acc_was_correct = models.IntegerField()
     report_addition_acc_acc_payoff = models.IntegerField()
     report_addition_final_payoff = models.FloatField()
+
+    # trust basics
     report_metarole = models.BooleanField()
     report_paying_round = models.IntegerField()
-    report_sent_amount = models.IntegerField()
-    report_receiver_belief = models.IntegerField()
-    report_pay_receiver_belief = models.IntegerField()
-    report_receiver_belief_shock = models.IntegerField()
-    report_pay_receiver_belief_shock = models.IntegerField()
-    report_sent_back_amount_if1 = models.BooleanField()
+
+    # trust r1
+    report_r1_sent_amount = models.IntegerField()
+    report_r1_sent_back_amount_if1 = models.BooleanField()
+    report_r1_sent_back_amount_if2 = models.BooleanField()
+    report_r1_t_payoff = models.IntegerField()
+
+    # trust r2
+    report_r2_sent_amount = models.IntegerField()
+    report_r2_sent_back_amount_if1 = models.BooleanField()
+    report_r2_sent_back_amount_if2 = models.BooleanField()
+    report_r2_t_payoff = models.IntegerField()
+    
+    # beliefs sender
     report_sender_belief_if1 = models.BooleanField()
-    report_pay_sender_belief_if1 = models.IntegerField()
-    report_sent_back_amount_if2 = models.BooleanField()
-    report_pay_sender_belief_if2 = models.IntegerField()
+    report_sender_belief_if2 = models.BooleanField()
     report_sender_belief_shock = models.IntegerField()
+    report_pay_sender_belief_if1 = models.IntegerField()
+    report_pay_sender_belief_if2 = models.IntegerField()
     report_pay_sender_belief_shock = models.IntegerField()
-    report_t_final_payoff = models.IntegerField()
+    
+    # beliefs receiver
+    report_receiver_belief = models.IntegerField()
+    report_receiver_belief_shock = models.IntegerField()
+    report_pay_receiver_belief = models.IntegerField()
+    report_pay_receiver_belief_shock = models.IntegerField()
+    report_b_temp_payoff = models.IntegerField()
     report_b_final_payoff = models.IntegerField()
 
-    def report_vars_for_database(self):
+    def report_vars_for_database(self): #this code sends the info from participant.vars up to the variables defined in player class for database
         self.report_participant_code = self.participant.code
         vars_fields = [
-            'participant_code',
-            'consent_name',
-            'consent_id_number',
-            'treatment',
-            'addition_acc_was_correct',
-            'addition_acc_acc_payoff',
-            'addition_final_payoff',
-            'metarole',
-            'paying_round',
-            'sent_amount',
-            'receiver_belief',
-            'pay_receiver_belief',
-            'receiver_belief_shock',
-            'pay_receiver_belief_shock',
-            'sent_back_amount_if1',
-            'sender_belief_if1',
-            'pay_sender_belief_if1',
-            'sent_back_amount_if2',
-            'pay_sender_belief_if2',
-            'sender_belief_shock',
-            'pay_sender_belief_shock',
-            't_final_payoff',
-            'b_final_payoff',
+            # basic info
+        'participant_code',
+        'consent_name',
+        'consent_id_number',
+        'treatment',
+
+        # additions
+        'addition_acc_was_correct',
+        'addition_acc_acc_payoff',
+        'addition_final_payoff',
+
+        # trust basics
+        'metarole',
+        'paying_round',
+
+        # trust r1
+        'r1_sent_amount',
+        'r1_sent_back_amount_if1',
+        'r1_sent_back_amount_if2',
+        'r1_t_payoff',
+
+        # trust r2
+        'r2_sent_amount',
+        'r2_sent_back_amount_if1',
+        'r2_sent_back_amount_if2',
+        'r2_t_payoff',
+
+        # beliefs sender
+        'sender_belief_if1',
+        'sender_belief_if2',
+        'sender_belief_shock',
+        'pay_sender_belief_if1',
+        'pay_sender_belief_if2',
+        'pay_sender_belief_shock',
+
+        # beliefs receiver
+        'receiver_belief',
+        'receiver_belief_shock',
+        'pay_receiver_belief',
+        'pay_receiver_belief_shock',
+        'b_temp_payoff',
+        'b_final_payoff',
         ]
 
         for field in vars_fields:
