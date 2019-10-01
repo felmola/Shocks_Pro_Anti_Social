@@ -56,3 +56,5 @@ git commit -m "wrote the code in report to show variables at the end of database
 git commit -m "Fixed treatment inconsistencies in trust app. TODO: Timer in additions, test bots"
 
 git commit -m "Created p.participant.vars in trust app to be passed onto admin report player variables. i e. have them in database for easy comparison. Fist try. TODO: Timer in additions"
+
+git commit -m "fixed some p.participant missing data on database. TODO: Timer in additions"

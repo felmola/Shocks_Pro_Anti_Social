@@ -82,6 +82,7 @@ class Player(BasePlayer):
     report_r2_sent_back_amount_if1 = models.BooleanField()
     report_r2_sent_back_amount_if2 = models.BooleanField()
     report_r2_t_payoff = models.IntegerField()
+    report_t_final_payoff = models.IntegerField()
     
     # beliefs sender
     report_sender_belief_if1 = models.BooleanField()
@@ -128,6 +129,7 @@ class Player(BasePlayer):
         'r2_sent_back_amount_if1',
         'r2_sent_back_amount_if2',
         'r2_t_payoff',
+        't_final_payoff',
 
         # beliefs sender
         'sender_belief_if1',
