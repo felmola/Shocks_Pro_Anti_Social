@@ -18,7 +18,7 @@ class Constants(BaseConstants):
     num_rounds = 10
 
     half_way = (num_rounds/2)
-    time_limit = 60*4
+    time_limit = 15
     shock = 0.2
     piece_rate = 1000 #this code is in settings.py
 
@@ -130,8 +130,8 @@ class Player(BasePlayer):
         print("[[ APP_1_ADDITION]] - PLAYER - FINAL_COUNT.............[[[ ROUND NUMBER ==> ", self.round_number, " <== ]]]")
         print("[[ APP_1_ADDITION]] - PLAYER - FINAL_COUNT.............[[[ PLAYER_ID ==> ", self.id_in_group, " <== ]]]")
 
-        self.acc_was_correct = sum([p.was_correct for p in self.in_all_rounds()])
-        self.acc_payoff = sum([i * Constants.piece_rate for i in [p.was_correct for p in self.in_all_rounds()]]) #this creates a list multiplying every correct '1' times the piece rate and then adds it all
+        self.acc_was_correct = sum(filter(None, [p.was_correct for p in self.in_all_rounds()]))
+        self.acc_payoff = sum([i * Constants.piece_rate for i in [p.was_correct for p in self.in_all_rounds()] if i != None]) #this creates a list multiplying every correct '1' times the piece rate and then adds it all
         #self.acc_payoff = sum([i * self.session.config['piece_rate'] for i in [p.was_correct for p in self.in_all_rounds()]]) #this creates a list multiplying every correct '1' times the piece rate and then adds it all
 
         if self.participant.vars['treatment'] == 1:

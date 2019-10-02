@@ -21,7 +21,7 @@ SESSION_CONFIGS = [
         'use_browser_bots': True,
     },
 ]
-
+#pip3 install psycopg2
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans

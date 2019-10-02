@@ -167,8 +167,8 @@ class Group(BaseGroup):
             p.participant.vars['r2_sent_back_amount_if2'] = p.in_round(2).sent_back_amount_if2
             p.participant.vars['r2_t_payoff'] = p.in_round(2).t_temp_payoff
 #            p.participant.vars['t_final_payoff'] = p.t_final_payoff # defined in player class tr_final_payoff
-            #beliefs sender
-            p.participant.vars['sender_belief_if1'] = p.sender_belief_if1
+            #beliefs sender_r1
+            p.participant.vars['r1_sender_belief_if1'] = p.sender_belief_if1
             p.participant.vars['sender_belief_if2'] = p.sender_belief_if2
             p.participant.vars['sender_belief_shock'] = p.sender_belief_shock
             p.participant.vars['pay_sender_belief_if1'] = p.pay_sender_belief_if1

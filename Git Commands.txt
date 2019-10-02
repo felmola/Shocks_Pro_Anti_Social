@@ -60,3 +60,15 @@ git commit -m "Created p.participant.vars in trust app to be passed onto admin r
 git commit -m "fixed some p.participant missing data on database. TODO: Timer in additions"
 
 git commit -m "found an error in the belief payoff function. It is adding incorrectly"
+
+now i want to roll back to commit "30586b6a81f7da3e1a073168d9726a3ba222cb1230586b6a81f7da3e1a073168d9726a3ba222cb12" because I realized
+that to test the trust app i dont need and admin report. I could use the normal database and checked it was ok.
+For this I commit the current changes so I don't loose them just in case. (a dead-end branch)
+git commit -m "commited for a dead branch in the admin report for the trust"
+then i create a new branch
+git branch dead_end_adminvars_trust (this does not take me out of the current branch)
+then i reset to the commit i want
+git reset --hard 30586b6a81f7da3e1a073168d9726a3ba222cb12
+
+
+
